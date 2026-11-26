@@ -24,4 +24,4 @@ dist-ssr
 *.sw?
 
 # Design reference assets
-public/design
+design
