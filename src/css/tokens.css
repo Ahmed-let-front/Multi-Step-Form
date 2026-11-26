@@ -11,18 +11,3 @@
   --blue-50: #fafbff;
   --white: #ffffff;
 }
-@media (prefers-color-scheme: dark) {
-  :root {
-    --blue-950: #f0f5ff;
-    --purple-600: #7b73ff;
-    --blue-300: #3b4a8f;
-    --blue-200: #1f3a5c;
-    --red-500: #ff5c6c;
-
-    --grey-500: #9699ab;
-    --purple-200: #2a3350;
-    --blue-100: #0a1f3d;
-    --blue-50: #02152e;
-    --white: #02295a;
-  }
-}
