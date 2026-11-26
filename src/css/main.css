@@ -1,16 +1,37 @@
-@import "tailwindcss";
-@import "./tokens.css";
-@import "@fontsource/ubuntu/400.css";
-@import "@fontsource/ubuntu/500.css";
-@import "@fontsource/ubuntu/700.css";
+@import 'tailwindcss';
+@import './tokens.css';
+@import '@fontsource/ubuntu/400.css';
+@import '@fontsource/ubuntu/500.css';
+@import '@fontsource/ubuntu/700.css';
 
 @custom-variant hover (&:hover);
 
 @theme inline {
+  --color-blue-950: var(--blue-950);
+  --color-purple-600: var(--purple-600);
+  --color-blue-300: var(--blue-300);
+  --color-blue-200: var(--blue-200);
+  --color-red-500: var(--red-500);
+  --color-grey-500: var(--grey-500);
+  --color-purple-200: var(--purple-200);
+  --color-blue-100: var(--blue-100);
+  --color-blue-50: var(--blue-50);
+  --color-white: var(--white);
 }
+
 @theme {
+  --font-sans: 'Ubuntu', ui-sans-serif, system-ui, sans-serif;
+
+  --breakpoint-xs: 20rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 90rem;
 }
+
 @layer base {
+  html {
+    font-size: 62.5%;
+  }
 }
+
 @layer components {
 }

@@ -1,3 +1,10 @@
-import { useState } from "react";
-const App = () => <h1></h1>;
+import { useState } from 'react';
+import Sidebar from './Sidebar';
+const App = () => {
+  return (
+    <div>
+      <Sidebar />
+    </div>
+  );
+};
 export default App;
