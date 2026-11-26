@@ -1,9 +1,11 @@
+import { type SidebarProps } from './types/types';
+
 import bgMobile from '/src/assets/images/bg-sidebar-mobile.svg';
 import bgDesktop from '/src/assets/images/bg-sidebar-desktop.svg';
 
 const steps = ['Your info', 'Select plan', 'Add-ons', 'Summary'];
 
-const Sidebar = () => {
+const Sidebar = ({ activeStep }: SidebarProps) => {
   return (
     <aside className="relative h-[17.2rem] w-full shrink-0 overflow-hidden bg-purple-600 lg:h-auto lg:w-[27.4rem] lg:self-stretch lg:rounded-[.8rem]">
       <img
@@ -24,7 +26,7 @@ const Sidebar = () => {
         {steps.map((_, i) => (
           <li
             key={i}
-            className={`step-circle ${i === 0 ? 'step-circle-active' : ''}`}
+            className={`step-circle${activeStep === i + 1 ? ' step-circle-active' : ''}`}
           >
             {i + 1}
           </li>
@@ -36,7 +38,7 @@ const Sidebar = () => {
         {steps.map((name, i) => (
           <li key={name} className="flex items-center gap-[1.6rem]">
             <span
-              className={`step-circle ${i === 0 ? 'step-circle-active' : ''}`}
+              className={`step-circle${activeStep === i + 1 ? ' step-circle-active' : ''}`}
             >
               {i + 1}
             </span>
