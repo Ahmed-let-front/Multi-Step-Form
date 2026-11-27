@@ -1,5 +1,9 @@
 import iconCheckmark from '/src/assets/images/icon-checkmark.svg';
 
+import { type AddOnsStepProps } from './types/types';
+import type { SyntheticEvent } from 'react';
+import Footer from './FooterBtns';
+
 const addons = [
   {
     name: 'Online service',
@@ -21,9 +25,13 @@ const addons = [
   },
 ];
 
-const AddOnsStep = () => {
+const AddOnsStep = ({ onChangeActiveStep, activeStep }: AddOnsStepProps) => {
+  const handleSubmit = (e: SyntheticEvent) => {
+    e.preventDefault();
+    onChangeActiveStep(activeStep + 1);
+  };
   return (
-    <form className="flex flex-1 flex-col" onSubmit={e => e.preventDefault()}>
+    <form className="flex flex-1 flex-col" onSubmit={handleSubmit}>
       <div className="step">
         <div>
           <h2 className="step-title">Pick add-ons</h2>
@@ -68,14 +76,7 @@ const AddOnsStep = () => {
         </div>
       </div>
 
-      <footer className="step-footer justify-between">
-        <button type="button" className="btn-ghost">
-          Go Back
-        </button>
-        <button type="submit" className="btn-primary">
-          Next Step
-        </button>
-      </footer>
+      <Footer onChangeActiveStep={onChangeActiveStep} activeStep={activeStep} />
     </form>
   );
 };

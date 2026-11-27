@@ -1,3 +1,6 @@
+import type { SyntheticEvent } from 'react';
+import { type PersonalInfoStepProps } from './types/types';
+import Footer from './FooterBtns';
 const fields = [
   {
     id: 'name',
@@ -22,9 +25,16 @@ const fields = [
   },
 ];
 
-const PersonalInfoStep = () => {
+const PersonalInfoStep = ({
+  onChangeActiveStep,
+  activeStep,
+}: PersonalInfoStepProps) => {
+  const handleSubmit = (e: SyntheticEvent) => {
+    e.preventDefault();
+    onChangeActiveStep(activeStep + 1);
+  };
   return (
-    <form className="flex flex-1 flex-col" onSubmit={e => e.preventDefault()}>
+    <form className="flex flex-1 flex-col" onSubmit={handleSubmit}>
       <div className="step">
         <div>
           <h2 className="step-title">Personal info</h2>
@@ -50,7 +60,6 @@ const PersonalInfoStep = () => {
           </div>
         </div>
       </div>
-
       <footer className="step-footer justify-end">
         <button type="submit" className="btn-primary">
           Next Step

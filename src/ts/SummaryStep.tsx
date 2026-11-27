@@ -1,3 +1,8 @@
+import type { SyntheticEvent } from 'react';
+import { type SummaryStepProps } from './types/types';
+import Footer from './FooterBtns';
+import { TOTAL_PRICE_START_STEP } from './config';
+
 const plan = { name: 'Arcade (Monthly)', price: '$9/mo' };
 
 const selectedAddons = [
@@ -5,9 +10,13 @@ const selectedAddons = [
   { name: 'Larger storage', price: '+$2/mo' },
 ];
 
-const SummaryStep = () => {
+const SummaryStep = ({ onChangeActiveStep, activeStep }: SummaryStepProps) => {
+  const handleSubmit = (e: SyntheticEvent) => {
+    e.preventDefault();
+    onChangeActiveStep(activeStep + 1);
+  };
   return (
-    <form className="flex flex-1 flex-col" onSubmit={e => e.preventDefault()}>
+    <form className="flex flex-1 flex-col" onSubmit={handleSubmit}>
       <div className="step">
         <div>
           <h2 className="step-title">Finishing up</h2>
@@ -24,6 +33,7 @@ const SummaryStep = () => {
                 <button
                   type="button"
                   className="w-fit text-[1.4rem] text-grey-500 underline underline-offset-4 hover:text-purple-600"
+                  onClick={() => onChangeActiveStep(TOTAL_PRICE_START_STEP)}
                 >
                   Change
                 </button>
@@ -60,14 +70,11 @@ const SummaryStep = () => {
         </div>
       </div>
 
-      <footer className="step-footer justify-between">
-        <button type="button" className="btn-ghost">
-          Go Back
-        </button>
-        <button type="submit" className="btn-primary">
-          Confirm
-        </button>
-      </footer>
+      <Footer
+        nextLabel="Confirm"
+        onChangeActiveStep={onChangeActiveStep}
+        activeStep={activeStep}
+      />
     </form>
   );
 };

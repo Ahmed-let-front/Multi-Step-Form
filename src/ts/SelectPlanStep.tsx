@@ -2,15 +2,27 @@ import iconArcade from '/src/assets/images/icon-arcade.svg';
 import iconAdvanced from '/src/assets/images/icon-advanced.svg';
 import iconPro from '/src/assets/images/icon-pro.svg';
 
+import Footer from './FooterBtns';
+
+import { type SelectPlanStepProps } from './types/types';
+import { act, type SyntheticEvent } from 'react';
+
 const plans = [
   { name: 'Arcade', price: '$90/yr', icon: iconArcade, active: true },
   { name: 'Advanced', price: '$120/yr', icon: iconAdvanced, active: false },
   { name: 'Pro', price: '$150/yr', icon: iconPro, active: false },
 ];
 
-const SelectPlanStep = () => {
+const SelectPlanStep = ({
+  onChangeActiveStep,
+  activeStep,
+}: SelectPlanStepProps) => {
+  const handleSubmit = (e: SyntheticEvent) => {
+    e.preventDefault();
+    onChangeActiveStep(activeStep + 1);
+  };
   return (
-    <form className="flex flex-1 flex-col" onSubmit={e => e.preventDefault()}>
+    <form className="flex flex-1 flex-col" onSubmit={handleSubmit}>
       <div className="step">
         <div>
           <h2 className="step-title">Select your plan</h2>
@@ -55,14 +67,7 @@ const SelectPlanStep = () => {
         </div>
       </div>
 
-      <footer className="step-footer justify-between">
-        <button type="button" className="btn-ghost">
-          Go Back
-        </button>
-        <button type="submit" className="btn-primary">
-          Next Step
-        </button>
-      </footer>
+      <Footer onChangeActiveStep={onChangeActiveStep} activeStep={activeStep} />
     </form>
   );
 };

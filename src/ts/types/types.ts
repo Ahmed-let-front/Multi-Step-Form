@@ -1,4 +1,11 @@
 interface StepSetterProps {
+  activeStep: number;
+  onChangeActiveStep: (step: number) => void;
+}
+
+export interface FooterBtnsProps {
+  nextLabel?: string;
+  activeStep: number;
   onChangeActiveStep: (step: number) => void;
 }
 

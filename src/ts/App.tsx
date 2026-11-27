@@ -4,17 +4,42 @@ import SelectPlanStep from './SelectPlanStep';
 import AddOnsStep from './AddOnsStep';
 import SummaryStep from './SummaryStep';
 import { useState, type ReactNode } from 'react';
+import ThankYouStep from './ThankYouStep';
+import { TOTAL_STEPS } from './config';
 
 const App = () => {
   const [activeStep, setActiveStep] = useState(1);
 
-  const onChangeStepActive = (newStep: number) => setActiveStep(newStep);
+  const onChangeActiveStep = (step: number) => {
+    setActiveStep(() => Math.min(Math.max(step, 1), TOTAL_STEPS));
+  };
 
   const STEP_COMPONENTS: Record<number, ReactNode> = {
-    1: <PersonalInfoStep />,
-    2: <SelectPlanStep />,
-    3: <AddOnsStep />,
-    4: <SummaryStep />,
+    1: (
+      <PersonalInfoStep
+        onChangeActiveStep={onChangeActiveStep}
+        activeStep={activeStep}
+      />
+    ),
+    2: (
+      <SelectPlanStep
+        onChangeActiveStep={onChangeActiveStep}
+        activeStep={activeStep}
+      />
+    ),
+    3: (
+      <AddOnsStep
+        onChangeActiveStep={onChangeActiveStep}
+        activeStep={activeStep}
+      />
+    ),
+    4: (
+      <SummaryStep
+        onChangeActiveStep={onChangeActiveStep}
+        activeStep={activeStep}
+      />
+    ),
+    5: <ThankYouStep />,
   };
 
   return (
