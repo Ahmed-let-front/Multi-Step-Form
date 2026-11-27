@@ -1,6 +1,6 @@
 import iconCheckmark from '/src/assets/images/icon-checkmark.svg';
 
-import { type AddOnsStepProps } from './types/types';
+import { type AddOnsStepProps } from '../types';
 import type { SyntheticEvent } from 'react';
 import Footer from './FooterBtns';
 

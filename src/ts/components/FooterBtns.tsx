@@ -1,4 +1,4 @@
-import { type FooterBtnsProps } from './types/types';
+import { type FooterBtnsProps } from '../types';
 const Footer = ({
   nextLabel = 'Next Step',
   activeStep,

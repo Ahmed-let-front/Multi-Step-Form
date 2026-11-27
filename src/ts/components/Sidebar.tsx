@@ -1,4 +1,4 @@
-import { type SidebarProps } from './types/types';
+import { type SidebarProps } from '../types';
 
 import bgMobile from '/src/assets/images/bg-sidebar-mobile.svg';
 import bgDesktop from '/src/assets/images/bg-sidebar-desktop.svg';

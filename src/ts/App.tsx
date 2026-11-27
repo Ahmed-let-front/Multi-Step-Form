@@ -1,10 +1,10 @@
-import Sidebar from './Sidebar';
-import PersonalInfoStep from './PersonalInfoStep';
-import SelectPlanStep from './SelectPlanStep';
-import AddOnsStep from './AddOnsStep';
-import SummaryStep from './SummaryStep';
+import Sidebar from './components/Sidebar';
+import PersonalInfoStep from './components/PersonalInfoStep';
+import SelectPlanStep from './components/SelectPlanStep';
+import AddOnsStep from './components//AddOnsStep';
+import SummaryStep from './components/SummaryStep';
 import { useState, type ReactNode } from 'react';
-import ThankYouStep from './ThankYouStep';
+import ThankYouStep from './components/ThankYouStep';
 import { TOTAL_STEPS } from './config';
 
 const App = () => {

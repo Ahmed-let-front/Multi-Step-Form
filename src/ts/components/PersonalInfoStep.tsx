@@ -1,6 +1,5 @@
 import type { SyntheticEvent } from 'react';
-import { type PersonalInfoStepProps } from './types/types';
-import Footer from './FooterBtns';
+import { type PersonalInfoStepProps } from '../types';
 const fields = [
   {
     id: 'name',

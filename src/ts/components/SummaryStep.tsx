@@ -1,7 +1,7 @@
 import type { SyntheticEvent } from 'react';
-import { type SummaryStepProps } from './types/types';
+import { type SummaryStepProps } from '../types';
 import Footer from './FooterBtns';
-import { TOTAL_PRICE_START_STEP } from './config';
+import { TOTAL_PRICE_START_STEP } from '../config';
 
 const plan = { name: 'Arcade (Monthly)', price: '$9/mo' };
 

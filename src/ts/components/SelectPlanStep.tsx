@@ -4,7 +4,7 @@ import iconPro from '/src/assets/images/icon-pro.svg';
 
 import Footer from './FooterBtns';
 
-import { type SelectPlanStepProps } from './types/types';
+import { type SelectPlanStepProps } from '../types';
 import { act, type SyntheticEvent } from 'react';
 
 const plans = [
