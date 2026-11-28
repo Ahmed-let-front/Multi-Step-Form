@@ -22,3 +22,19 @@ export interface SelectPlanStepProps extends StepSetterProps {}
 export interface AddOnsStepProps extends StepSetterProps {}
 
 export interface SummaryStepProps extends StepSetterProps {}
+
+type FieldId = 'name' | 'email' | 'phone';
+
+export interface FieldConfig {
+  id: FieldId;
+  label: string;
+  type: 'text' | 'email' | 'tel';
+  placeholder: string;
+  autoComplete: string;
+}
+
+export interface PersonalInfoFormData {
+  name: string;
+  email: string;
+  phone: string;
+}

@@ -5,7 +5,7 @@ import iconPro from '/src/assets/images/icon-pro.svg';
 import Footer from './FooterBtns';
 
 import { type SelectPlanStepProps } from '../types';
-import { act, type SyntheticEvent } from 'react';
+import { type SyntheticEvent } from 'react';
 
 const plans = [
   { name: 'Arcade', price: '$90/yr', icon: iconArcade, active: true },

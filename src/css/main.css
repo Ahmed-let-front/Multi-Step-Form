@@ -52,7 +52,7 @@
   }
 
   .field-label {
-    @apply text-[1.4rem] font-medium text-blue-950;
+    @apply flex justify-between items-center text-[1.4rem] font-medium text-blue-950;
   }
 
   .field-input {
