@@ -6,37 +6,60 @@ import SummaryStep from './components/SummaryStep';
 import { useState, type ReactNode } from 'react';
 import ThankYouStep from './components/ThankYouStep';
 import { TOTAL_STEPS } from './config';
+import type { MultiStepFormData } from './types';
+
+const initialMultiStepFormData: MultiStepFormData = {
+  planSelection: {
+    billingCycle: 'Monthly',
+    plan: 'Arcade',
+    price: 9,
+  },
+  addOns: [],
+};
 
 const App = () => {
   const [activeStep, setActiveStep] = useState(1);
+  const [personalPayload, setPersonalPayload] = useState(
+    initialMultiStepFormData,
+  );
 
-  const onChangeActiveStep = (step: number) => {
+  const handleChangeActiveStep = (step: number) => {
     setActiveStep(() => Math.min(Math.max(step, 1), TOTAL_STEPS));
+  };
+
+  const handlePersonalPayLoad = (newData: MultiStepFormData) => {
+    setPersonalPayload(newData);
   };
 
   const STEP_COMPONENTS: Record<number, ReactNode> = {
     1: (
       <PersonalInfoStep
-        onChangeActiveStep={onChangeActiveStep}
+        onChangeActiveStep={handleChangeActiveStep}
         activeStep={activeStep}
       />
     ),
     2: (
       <SelectPlanStep
-        onChangeActiveStep={onChangeActiveStep}
+        onChangeActiveStep={handleChangeActiveStep}
         activeStep={activeStep}
+        personalPayload={personalPayload}
+        onChangePersonalPayLoad={handlePersonalPayLoad}
       />
     ),
     3: (
       <AddOnsStep
-        onChangeActiveStep={onChangeActiveStep}
+        onChangeActiveStep={handleChangeActiveStep}
         activeStep={activeStep}
+        personalPayload={personalPayload}
+        onChangePersonalPayLoad={handlePersonalPayLoad}
       />
     ),
     4: (
       <SummaryStep
-        onChangeActiveStep={onChangeActiveStep}
+        onChangeActiveStep={handleChangeActiveStep}
         activeStep={activeStep}
+        personalPayload={personalPayload}
+        onChangePersonalPayLoad={handlePersonalPayLoad}
       />
     ),
     5: <ThankYouStep />,

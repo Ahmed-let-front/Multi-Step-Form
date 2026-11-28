@@ -1,7 +1,7 @@
-interface StepSetterProps {
-  activeStep: number;
-  onChangeActiveStep: (step: number) => void;
-}
+type FieldId = 'name' | 'email' | 'phone';
+type BillingCycle = 'Monthly' | 'Yearly';
+type PlanName = 'Arcade' | 'Advanced' | 'Pro';
+type AddOnId = 'online-service' | 'larger-storage' | 'customizable-profile';
 
 export interface FooterBtnsProps {
   nextLabel?: string;
@@ -12,18 +12,6 @@ export interface FooterBtnsProps {
 export interface SidebarProps {
   activeStep: number;
 }
-
-export interface StepNavigationProps extends StepSetterProps {}
-
-export interface PersonalInfoStepProps extends StepSetterProps {}
-
-export interface SelectPlanStepProps extends StepSetterProps {}
-
-export interface AddOnsStepProps extends StepSetterProps {}
-
-export interface SummaryStepProps extends StepSetterProps {}
-
-type FieldId = 'name' | 'email' | 'phone';
 
 export interface FieldConfig {
   id: FieldId;
@@ -37,4 +25,29 @@ export interface PersonalInfoFormData {
   name: string;
   email: string;
   phone: string;
+}
+
+export interface AddOnSelection {
+  id: AddOnId;
+  isChecked: boolean;
+  monthlyPrice: number;
+}
+
+export interface MultiStepFormData {
+  planSelection: {
+    billingCycle: BillingCycle;
+    plan: PlanName;
+    price: number;
+  };
+  addOns: AddOnSelection[] | [];
+}
+
+export interface StepSetterProps {
+  activeStep: number;
+  onChangeActiveStep: (step: number) => void;
+}
+
+export interface FormStepProps extends StepSetterProps {
+  personalPayload: MultiStepFormData;
+  onChangePersonalPayLoad(pram: MultiStepFormData): void;
 }

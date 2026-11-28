@@ -1,5 +1,5 @@
 import type { SyntheticEvent } from 'react';
-import { type SummaryStepProps } from '../types';
+import { type FormStepProps } from '../types';
 import Footer from './FooterBtns';
 import { TOTAL_PRICE_START_STEP } from '../config';
 
@@ -10,7 +10,12 @@ const selectedAddons = [
   { name: 'Larger storage', price: '+$2/mo' },
 ];
 
-const SummaryStep = ({ onChangeActiveStep, activeStep }: SummaryStepProps) => {
+const SummaryStep = ({
+  onChangeActiveStep,
+  activeStep,
+  personalPayload,
+  onChangePersonalPayLoad,
+}: FormStepProps) => {
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
     onChangeActiveStep(activeStep + 1);

@@ -4,7 +4,7 @@ import iconPro from '/src/assets/images/icon-pro.svg';
 
 import Footer from './FooterBtns';
 
-import { type SelectPlanStepProps } from '../types';
+import { type FormStepProps } from '../types';
 import { type SyntheticEvent } from 'react';
 
 const plans = [
@@ -16,7 +16,9 @@ const plans = [
 const SelectPlanStep = ({
   onChangeActiveStep,
   activeStep,
-}: SelectPlanStepProps) => {
+  personalPayload,
+  onChangePersonalPayLoad,
+}: FormStepProps) => {
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
     onChangeActiveStep(activeStep + 1);

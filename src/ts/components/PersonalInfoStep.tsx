@@ -1,6 +1,6 @@
 import { useState, type ChangeEvent, type SyntheticEvent } from 'react';
 import type {
-  PersonalInfoStepProps,
+  StepSetterProps,
   FieldConfig,
   PersonalInfoFormData,
 } from '../types';
@@ -36,7 +36,7 @@ const initialInputsValues: PersonalInfoFormData = {
 const PersonalInfoStep = ({
   onChangeActiveStep,
   activeStep,
-}: PersonalInfoStepProps) => {
+}: StepSetterProps) => {
   const [form, setForm] = useState(initialInputsValues);
 
   const [formError, SetFormError] = useState<PersonalInfoFormData>({

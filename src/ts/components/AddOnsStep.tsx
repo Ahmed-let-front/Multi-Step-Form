@@ -1,6 +1,6 @@
 import iconCheckmark from '/src/assets/images/icon-checkmark.svg';
 
-import { type AddOnsStepProps } from '../types';
+import { type FormStepProps } from '../types';
 import type { SyntheticEvent } from 'react';
 import Footer from './FooterBtns';
 
@@ -25,7 +25,12 @@ const addons = [
   },
 ];
 
-const AddOnsStep = ({ onChangeActiveStep, activeStep }: AddOnsStepProps) => {
+const AddOnsStep = ({
+  onChangeActiveStep,
+  activeStep,
+  personalPayload,
+  onChangePersonalPayLoad,
+}: FormStepProps) => {
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
     onChangeActiveStep(activeStep + 1);
